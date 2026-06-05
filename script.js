@@ -8,18 +8,32 @@ const getComputerChoice=function(){
     }
 }
 
-const getHumanChoice=function (){
-    let choice =prompt("Choose one Rock/Paper/Scissor");
-    return choice.toUpperCase();
-}
+const rock=document.querySelector(".rock");
+const paper=document.querySelector(".paper");
+const scissor=document.querySelector(".scissor");
+
+let humanchoice;
+
+rock.addEventListener("click",()=>{
+    playgame("ROCK");
+});
+
+paper.addEventListener("click",()=>{
+    playgame("PAPER");
+});
+
+scissor.addEventListener("click",()=>{
+    playgame("SCISSOR");
+});
 
 
 let humanscore=0;
 let computerscore=0;
 
-function playround(humanchoice,computerchoice,round){
+function playround(humanchoice,computerchoice){
     if(humanchoice===computerchoice){
-        console.log("TIE!");
+        alert("TIE!");
+        return;
     }
     if(humanchoice=="ROCK"){
         if(computerchoice=="SCISSOR")humanscore++;
@@ -35,29 +49,44 @@ function playround(humanchoice,computerchoice,round){
         if(computerchoice=="PAPER")humanscore++;
         else computerscore++;
     }
-    console.log(`Scores at end of ${round} are`);
-    console.log(`computer: ${computerscore}`);
-    console.log(`human:${humanscore}`);
 
 }
 
-function playgame(){
-    for(let i=0;i<5;i++){
-        let humanchoice=getHumanChoice();
-        let computerchoice=getComputerChoice();
-        playround(humanchoice,computerchoice,i+1);
-    }
-    if(humanscore>computerscore){
-        console.log("HUMAN won!");
-    }
-    else if(computerscore>humanscore){
-        console.log("Computer won");
-    }
 
-    else{
-        console.log("TIE!");
+function playgame(humanchoice){
+    playround(humanchoice,getComputerChoice());
+
+    const human=document.querySelector(".human_score");
+    human.innerText=`Human: ${humanscore}`;
+    const comp=document.querySelector(".computer_score");
+    comp.innerText=`Computer: ${computerscore}`;
+
+    if(humanscore===5){
+        alert("Human win close to play again");
+        humanscore=0;
+        computerscore=0;
+        human.innerText=`Human: ${humanscore}`;
+        comp.innerText=`Computer: ${computerscore}`;
+        return;
+
     }
+    if( computerscore===5){
+        alert("Computer win close to play again");
+        humanscore=0;
+        computerscore=0;
+        human.innerText=`Human: ${humanscore}`;
+        comp.innerText=`Computer: ${computerscore}`;
+        return;
+    }
+    if(computerscore==5 && humanscore==5){
+        alert("Tie close to play again");
+        humanscore=0;
+        computerscore=0;
+        human.innerText=`Human: ${humanscore}`;
+        comp.innerText=`Computer: ${computerscore}`;
+        return;
+    }
+    
 
 }
-playgame();
 

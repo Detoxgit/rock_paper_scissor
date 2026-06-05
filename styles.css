@@ -1,0 +1,82 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    overflow: hidden;
+}
+.head{
+    background-color: rgba(181, 113, 24, 0.937);
+    height:100px;
+    width:100%;
+}
+.heading{
+    font-family: "Pixelify Sans",sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    text-align:center;
+    font-size:50px;
+    padding-top:10px;
+}
+main{
+    height: 100vh;
+    width:100%;
+}
+.background{
+    background-image: url('download.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    height:100vh;
+    width: 100%;
+    display: block;
+}
+
+
+button {
+    height: 250px;
+    width: 250px;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border-radius: 50px;
+    background-color: rgb(221, 197, 19);
+    border: 10px solid black;
+
+    font-family: "Pixelify sans";
+    font-size: 20px;
+    font-weight: 800;
+}
+
+button:hover{
+    transform: scale(1.1);
+    transition: all ease-in-out 0.2s;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 100px;
+
+}
+button img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+}
+.score_board{
+    height:100px;
+    width:40vw;
+    background-color: rgba(60, 192, 229, 0.5);
+    text-align: center;
+    border-radius: 20px;
+    margin: -20px auto;
+    border: 10px solid black;
+    padding-top: 15px;
+    
+}
